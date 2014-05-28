@@ -5,7 +5,7 @@ return array(
 	/**
 	 * Site title. Shows up in navbar and page titles.
 	 */
-	'authTitle' => 'AA Goon Auth',
+	'title' => 'AA Goon Auth',
 
 	/**
 	 * Prefix applied to the front of unique ids used for authenticating SA accounts

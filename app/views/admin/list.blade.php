@@ -29,7 +29,7 @@
             @elseif ($user->is_sponsored)
                 <td><span class="label label-info">Sponsored</span></td>
             @else
-                <span class="label label-default">Unauthed</span>
+                <td><span class="label label-default">Unauthed</span></td>
             @endif
             @if (empty($user->sa_username))
                 <td>N/A</td>

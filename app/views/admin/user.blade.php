@@ -9,7 +9,7 @@
     @elseif ($user->is_sponsored)
         <span class="label label-info">Sponsored</span> by <strong>{{ HTML::link('admin/user/'.$user->sponsoree()->first()->id, $user->sponsoree()->first()->sa_username) }}</strong>
     @else
-        <span class="label label-default">Unauthed"</span>
+        <span class="label label-default">Unauthed</span>
     @endif
     </p>
     @if (!empty($user->sa_username) || $user->is_sponsored)

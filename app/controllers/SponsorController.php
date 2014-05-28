@@ -49,7 +49,7 @@ class SponsorController extends BaseController
 	        $json = $response->json();
 
 	        if (!isset($json['user_state']) || $json['user_state'] !== 'valid') {
-	            Session::flash('error', 'You must verify your email address before you sign in.');
+	            Session::flash('error', 'This user has not validated their email account.');
 
 	            return Redirect::back();
 	        }
@@ -68,11 +68,9 @@ class SponsorController extends BaseController
 
 	    if (empty($sponsor)) {
 	    	$sponsor = new User();
-	    	$sponsor->xf_id = $json['user_id'];
-	    	$sponsor->xf_username = $json['username'];
-	    	$sponsor->is_sponsored = true;
-	    	$sponsor->save();
 	    }
+    	$sponsor->is_sponsored = true;
+    	$sponsor->save();
 
 	    $auth->sponsors()->attach($sponsor->id);
 
