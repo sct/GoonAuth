@@ -20,6 +20,7 @@
             <th style="width: 75px;">Status</th>
             <th>SA Username</th>
             <th>Forum Username</th>
+            <th>Characters</th>
             <th style="width: 150px">Controls</th>
         </thead>
         @foreach ($users as $user)
@@ -37,6 +38,14 @@
                 <td>{{ $user->sa_username }}</td>
             @endif
             <td>{{ $user->xf_username }}</td>
+            <td>
+                @if ($user->characters->count() == 0)
+                None
+                @else
+                    @foreach ($user->characters as $character)
+                    <span class="label {{ $character->is_main ? 'label-primary' : 'label-default' }}">{{ $character->name }}</span>
+                    @endforeach
+                @endif
             <td><a href="{{ URL::to('admin/user/'.$user->id) }}" class="btn btn-primary btn-xs">View User</a></td>
         </tr>
         @endforeach

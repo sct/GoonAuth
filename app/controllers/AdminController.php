@@ -5,8 +5,11 @@ class AdminController extends BaseController
 	public function showList()
 	{
 		if (Input::has('search')) {
-			$users = User::where('xf_username', 'LIKE','%'.Input::get('search').'%')
+			$users = User::select('auth.*')
+						->where('xf_username', 'LIKE','%'.Input::get('search').'%')
 						->orWhere('sa_username', 'LIKE', '%'.Input::get('search').'%')
+						->orWhere('characters.name', 'LIKE', '%'.Input::get('search').'%')
+						->join('characters', 'auth.id', '=', 'characters.auth_id')
 						->paginate(20);
 		} else {
 			$users = User::paginate(20);
