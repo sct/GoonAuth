@@ -68,6 +68,8 @@ class SponsorController extends BaseController
 
 	    if (empty($sponsor)) {
 	    	$sponsor = new User();
+	    	$sponsor->xf_id = $json['user_id'];
+	    	$sponsor->xf_username = $json['username'];
 	    }
     	$sponsor->is_sponsored = true;
     	$sponsor->save();

@@ -167,7 +167,7 @@ class UserController extends BaseController
 	        $json = $ex->getResponse()->json();
 
 	        if ($json['error'] === 4) {
-	            Session::flash('error', 'Invalid username. Did you register on aagoons.com first?');
+	            Session::flash('error', 'Invalid username. Did you register on the forums first?');
 	        } else if ($json['error'] === 5) {
 	            Session::flash('error', 'Invalid Username / Password. Please try again.');
 	        } else {
