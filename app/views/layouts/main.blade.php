@@ -33,7 +33,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="{{ URL::to('/') }}">{{ Config::get('goonauth.title') }}</a>
+          <a class="navbar-brand" href="{{ URL::to('/') }}">{{ Config::get('goonauth.title') }} Auth</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -56,8 +56,10 @@
                   <li><a href="{{ URL::to('logout') }}">Logout</a></li>
                 </ul>
               </li>
+              <li><a href="{{ Config::get('goonauth.forumUrl') }}">{{ Config::get('goonauth.title') }}</a></li>
             @else
               <li><a href="{{ URL::to('login') }}">Login</a></li>
+              <li><a href="{{ Config::get('goonauth.forumUrl') }}">{{ Config::get('goonauth.title') }}</a></li>
             @endif
           </ul>
         </div><!--/.nav-collapse -->

@@ -5,7 +5,7 @@ return array(
 	/**
 	 * Site title. Shows up in navbar and page titles.
 	 */
-	'title' => 'AA Goon Auth',
+	'title' => 'AA Goons',
 
 	/**
 	 * Prefix applied to the front of unique ids used for authenticating SA accounts
@@ -26,6 +26,11 @@ return array(
 	 * URL to your Xenforo api.php
 	 */
 	'apiUrl' => '',
+
+	/**
+	 * URL to your forums
+	 */
+	'forumUrl' => '',
 
 	/**
 	 * Xenforo API key
