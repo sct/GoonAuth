@@ -72,5 +72,13 @@
 
     </div>
 
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 footer">
+        GoonAuth v{{ AUTH_VERSION }} - Created by {{ HTML::link('https://github.com/sct', 'sct', array('target' => '_blank')) }} - {{ HTML::link('https://github.com/sct/GoonAuth', 'GitHub', array('target' => '_blank')) }}
+        </div>
+      </div>
+    </div>
+
   </body>
 </html>

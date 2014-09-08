@@ -64,3 +64,10 @@ body {
 .authed h2 {
   margin-top: 0;
 }
+
+.footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: smaller;
+  color: #a0a0a0;
+}

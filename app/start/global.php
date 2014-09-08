@@ -79,3 +79,8 @@ App::down(function()
 */
 
 require app_path().'/filters.php';
+
+/*
+| GoonAUth Version Constants
+ */
+define('AUTH_VERSION', '1.0');
