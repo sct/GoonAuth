@@ -9,7 +9,7 @@ class AdminController extends BaseController
 						->where('xf_username', 'LIKE','%'.Input::get('search').'%')
 						->orWhere('sa_username', 'LIKE', '%'.Input::get('search').'%')
 						->orWhere('characters.name', 'LIKE', '%'.Input::get('search').'%')
-						->join('characters', 'auth.id', '=', 'characters.auth_id')
+						->leftJoin('characters', 'auth.id', '=', 'characters.auth_id')
 						->paginate(20);
 		} else {
 			$users = User::paginate(20);
@@ -28,7 +28,7 @@ class AdminController extends BaseController
 				$user->save();
 			}
 		}
-		
+
 		$include = array('user' => $user);
 		return View::make('admin.user', $include);
 	}
