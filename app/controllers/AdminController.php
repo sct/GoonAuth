@@ -22,6 +22,13 @@ class AdminController extends BaseController
 
 	public function showUser(User $user)
 	{
+		if (Input::has('admin') && in_array(Session::get('auth')->id, Config::get('goonauth.superAdmins'))) {
+			if (!in_array($user->id, Config::get('goonauth.superAdmins'))) {
+				$user->is_admin = Input::get('admin');
+				$user->save();
+			}
+		}
+		
 		$include = array('user' => $user);
 		return View::make('admin.user', $include);
 	}

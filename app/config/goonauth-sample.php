@@ -60,6 +60,11 @@ return array(
 	/**
 	 * Number of players an authed goon can sponsor
 	 */
-	'sponsors' => 2
+	'sponsors' => 2,
+
+	/**
+	 * Super Admin IDs (These users can grant other users admin)
+	 */
+	'superAdmins' => array(1,2),
 
 );
