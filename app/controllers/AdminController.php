@@ -10,6 +10,7 @@ class AdminController extends BaseController
 						->orWhere('sa_username', 'LIKE', '%'.Input::get('search').'%')
 						->orWhere('characters.name', 'LIKE', '%'.Input::get('search').'%')
 						->leftJoin('characters', 'auth.id', '=', 'characters.auth_id')
+						->groupBy('auth.id')
 						->paginate(20);
 		} else {
 			$users = User::paginate(20);
