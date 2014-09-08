@@ -34,9 +34,9 @@
     @endif
     @if (in_array(Session::get('auth')->id, Config::get('goonauth.superAdmins')))
         @if (!$user->is_admin)
-        <p><a href="{{ URL::to('admin/user/1?admin=1') }}" class="label label-primary">Set as admin</a></p>
+        <p><a href="{{ URL::to('admin/user/'. $user->id . '?admin=1') }}" class="label label-primary">Set as admin</a></p>
         @else
-        <p><a href="{{ URL::to('admin/user/1?admin=0') }}" class="label label-danger">Remove Admin</a></p>
+        <p><a href="{{ URL::to('admin/user/'. $user->id . '?admin=0') }}" class="label label-danger">Remove Admin</a></p>
         @endif
     @endif
     </div>
