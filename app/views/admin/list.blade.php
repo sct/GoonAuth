@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('content')
 <h1>Auth List</h1>
-<p><b>Total Auth Accounts:</b> {{ User::count() }} <b>Total Authed Goons:</b> {{ User::authed()->count() }} <b>Total Sponsored:</b> {{ User::sponsored()->count() }} <b>Total Characters:</b> {{ Character::count() }}</p>
+<p><b>Total Auth Accounts:</b> <span class="badge">{{ User::count() }}</span> <b>Total Authed Goons:</b> <span class="badge">{{ User::authed()->count() }}</span> <b>Total Sponsored:</b> <span class="badge">{{ User::sponsored()->count() }}</span> <b>Total Characters:</b> <span class="badge">{{ Character::count() }}</span></p>
 <div class="row">
     <div class="col-md-3">
         <form action="{{ URL::to('admin') }}" method="post" class="form">
