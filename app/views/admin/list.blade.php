@@ -1,8 +1,9 @@
 @extends('layouts.main')
 @section('content')
 <h1>Auth List</h1>
+<p><b>Total Auth Accounts:</b> {{ User::count() }} <b>Total Authed Goons:</b> {{ User::authed()->count() }} <b>Total Sponsored:</b> {{ User::sponsored()->count() }} <b>Total Characters:</b> {{ Character::count() }}</p>
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-3">
         <form action="{{ URL::to('admin') }}" method="post" class="form">
             <div class="input-group">
               <input type="text" name="search" class="form-control" value="{{ $search }}">
@@ -53,4 +54,9 @@
     {{ $users->appends(array('search' => $search))->links(); }}
     </div>
 </div>
+<p><b>Admins:</b> 
+@foreach (User::where('is_admin', 1)->get() as $user)
+<a href="{{ URL::to('admin/user/'.$user->id) }}" class="label label-default">{{ $user->sa_username }}</a>
+@endforeach
+</p>
 @stop
