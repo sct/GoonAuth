@@ -27,7 +27,9 @@
         </thead>
         @foreach ($users as $user)
         <tr>
-            @if (!empty($user->sa_username))
+            @if ($user->is_banned)
+                <td><span class="label label-danger">Banned</span></td>
+            @elseif (!empty($user->sa_username))
                 <td><span class="label label-success">Goon</span></td>
             @elseif ($user->is_sponsored)
                 <td><span class="label label-info">Sponsored</span></td>
