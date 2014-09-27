@@ -10,6 +10,9 @@
 <form class="form-signin" role="form" action="{{ URL::to('login') }}" method="post">
   <h2 class="form-signin-heading">Login using {{ Config::get('goonauth.title') }} forum account</h2>
   <p>If you don't have an {{ Config::get('goonauth.title') }} forum account, {{ HTML::link(Config::get('goonauth.forumUrl'), "click here") }} to create one.</p>
+  @if (Session::has('banned'))
+    <div class="alert alert-danger">You have been banned</div>
+  @endif
   @if (Session::has('error'))
     <div class="alert alert-danger">
     {{ Session::get('error') }}

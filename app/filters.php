@@ -39,6 +39,11 @@ App::after(function($request, $response)
 Route::filter('auth', function()
 {
 	if (!Session::has('authenticated')) return Redirect::to('login');
+
+	if (Session::get('auth')->is_banned) {
+		Session::flush();
+		return Redirect::to('login')->with('banned', 1);
+	}
 });
 
 Route::filter('linked', function()
