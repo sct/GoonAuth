@@ -48,6 +48,11 @@ return array(
 	'sponsorId' => 6,
 
 	/**
+	 * Xenforo usergroup for users who are not authed (Used for auth banning)
+	 */
+	'unauthedId' => 2,
+
+	/**
 	 * Number of characters an authed goon can have. This includes the main.
 	 */
 	'characters' => 3,

@@ -21,12 +21,14 @@ Route::get('logout', function() {
 	return Redirect::to('login');
 });
 
+Route::model('character', 'Character');
+
 Route::group(array('before' => 'auth'), function() {
 	Route::get('link', 'UserController@showLink');
 	Route::post('link', 'UserController@doLink');
 
 	Route::group(array('before' => 'linked'), function() {
-		Route::model('character', 'Character');
+		
 		Route::get('characters', 'CharacterController@showCharacters');
 		Route::get('character/add', 'CharacterController@showAddForm');
 		Route::post('character/add', 'CharacterController@doAddCharacter');
@@ -45,6 +47,10 @@ Route::group(array('before' => 'auth'), function() {
 		Route::get('/', 'AdminController@showList');
 		Route::post('/', 'AdminController@showList');
 		Route::get('user/{user}', 'AdminController@showUser');
+		Route::get('user/{user}/ban', 'AdminController@banUser');
+		Route::resource('note', 'NoteController');
+		Route::resource('blacklist', 'BlacklistController');
+		Route::get('character/lock/{character}', 'AdminController@lockCharacter');
 	});
 	
 });

@@ -22,7 +22,12 @@
         <tr>
             <td>{{ $character->is_main ? '<span class="label label-primary">Main</span>' : '<span class="label label-default">Alt</span>' }}</td>
             <td>{{ $character->name }}</td>
-            <td>{{ $character->is_main ? '<a href="#" class="btn btn-primary btn-xs" disabled>Set As Main</a>' : '<a href="' . URL::to('character/main/'.$character->id) . '" class="btn btn-primary btn-xs">Set As Main</a>' }} <a href="{{ URL::to('character/delete/'.$character->id) }}" class="btn btn-danger btn-xs">Delete</a></td>
+            <td>{{ $character->is_main ? '<a href="#" class="btn btn-primary btn-xs" disabled>Set As Main</a>' : '<a href="' . URL::to('character/main/'.$character->id) . '" class="btn btn-primary btn-xs">Set As Main</a>' }} 
+            @if ($character->locked)
+                <a href="#" class="btn btn-danger btn-xs" disabled>Delete</a></td>
+            @else
+                <a href="{{ URL::to('character/delete/'.$character->id) }}" class="btn btn-danger btn-xs">Delete</a></td>
+            @endif
         </tr>
         @endforeach
     </table>

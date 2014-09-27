@@ -16,6 +16,10 @@ class User extends Eloquent {
 		return $this->belongsToMany('User', 'sponsors', 'sponsor_id', 'auth_id');
 	}
 
+	public function notes() {
+		return $this->hasMany('Note', 'auth_id');
+	}
+
 	public function scopeAuthed($query) {
         return $query->where('sa_username', '!=', '')->where('linked_at', '!=', '');
     }

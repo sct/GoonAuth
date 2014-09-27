@@ -83,4 +83,4 @@ require app_path().'/filters.php';
 /*
 | GoonAUth Version Constants
  */
-define('AUTH_VERSION', '1.0');
+define('AUTH_VERSION', '1.1');

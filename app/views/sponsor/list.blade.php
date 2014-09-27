@@ -18,8 +18,8 @@
         </tr>
         @endforeach
     </table>
-    @if ($auth->characters->count() >= Config::get('goonauth.characters'))
-    <p><a href="#" class="btn btn-success" disabled>Max Characters Reached</a></p>
+    @if ($auth->sponsors->count() >= Config::get('goonauth.sponsors'))
+    <p><a href="#" class="btn btn-success" disabled>Max Sponsors Reached</a></p>
     @else
     <p><a href="{{ URL::to('sponsor/add') }}" class="btn btn-success">Add Sponsor</a></p>
     @endif

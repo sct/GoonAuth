@@ -56,6 +56,18 @@ class UserController extends BaseController
 			return Redirect::back();
 		}
 
+		$blacklist = Blacklist::where('sa_username', Input::get('sa_username'))->count();
+
+		if ($blacklist > 0) {
+			return Redirect::back();
+		}
+
+		$user = User::where('sa_username', '=', Input::get('sa_username'))->count();
+
+		if ($user > 0) {
+			return Redirect::back();
+		}
+
 		$cookieJar = new ArrayCookieJar();
 
 	    $bbpCookie = new Cookie();

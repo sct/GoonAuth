@@ -68,7 +68,9 @@ class CharacterController extends BaseController
 			App::abort(500, "Error processing request!");
 		}
 
-		$character->delete();
+		if (!$character->locked) {
+			$character->delete();
+		}
 
 		return Redirect::back();
 	}

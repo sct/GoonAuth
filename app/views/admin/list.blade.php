@@ -1,6 +1,7 @@
 @extends('layouts.main')
 @section('content')
 <h1>Auth List</h1>
+<p><a href="{{ URL::to('admin/blacklist') }}">Manage Blacklist</a></p>
 <p><b>Total Accounts:</b> <span class="badge">{{ User::count() }}</span> <b>Total Authed Goons:</b> <span class="badge">{{ User::authed()->count() }}</span> <b>Total Sponsored:</b> <span class="badge">{{ User::sponsored()->count() }}</span> <b>Total Characters:</b> <span class="badge">{{ Character::count() }}</span></p>
 <div class="row">
     <div class="col-md-3">
@@ -44,7 +45,7 @@
                 None
                 @else
                     @foreach ($user->characters as $character)
-                    <span class="label {{ $character->is_main ? 'label-primary' : 'label-default' }}">{{ $character->name }}</span>
+                    <a href="{{ URL::to('admin/character/lock/'.$character->id) }}" class="label {{ $character->is_main ? 'label-primary' : 'label-default' }}">{{ $character->locked ? '<i class="fa fa-lock"></i>' : '<i class="fa fa-unlock"></i>' }} {{ $character->name }}</a>
                     @endforeach
                 @endif
             <td><a href="{{ URL::to('admin/user/'.$user->id) }}" class="btn btn-primary btn-xs">View User</a></td>
